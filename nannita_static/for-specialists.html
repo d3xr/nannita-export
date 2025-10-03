@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Для специалистов - Nannita</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html"><img src="images/logo-black.png" alt="Nannita" class="logo"></a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="search-results.html" class="nav-link">Найти няню</a>
+          <a href="auth.html" class="btn btn-primary btn-sm">Вход</a>
+        </nav>
+        <button class="mobile-menu-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+  </header>
+  
+  <div class="mobile-menu">
+    <a href="index.html" class="mobile-menu-link">Главная</a>
+    <a href="search-results.html" class="mobile-menu-link">Найти няню</a>
+    <a href="auth.html" class="mobile-menu-link">Вход</a>
+  </div>
+
+  <section class="hero" style="background: linear-gradient(135deg, #E8F4FF 0%, #FFFFFF 100%);">
+    <div class="container">
+      <div class="text-center">
+        <h1 class="hero-title">Зарабатывайте на любимой работе</h1>
+        <p class="hero-subtitle">Более 1000 семей ищут няню прямо сейчас. Начните работать уже сегодня!</p>
+        <div class="flex flex-col gap-2" style="max-width: 400px; margin: 0 auto;">
+          <input type="tel" placeholder="+7 (___) ___-__-__" class="form-input" id="specialist-phone" style="text-align: center; font-size: 1.125rem;">
+          <a href="auth.html" class="btn btn-primary btn-lg">Начать работу</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Как это работает</h2>
+      <div class="grid grid-cols-1 grid-cols-md-2 gap-3" style="margin-top: 2rem;">
+        <div class="card">
+          <div class="card-body">
+            <div class="text-primary" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">1</div>
+            <h3 class="font-semibold mb-2" style="font-size: 1.25rem;">Клиенты создают заказы</h3>
+            <p class="text-secondary">Описывают детали и предлагают цену</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="text-primary" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">2</div>
+            <h3 class="font-semibold mb-2" style="font-size: 1.25rem;">Вы выбираете заказы</h3>
+            <p class="text-secondary">По специализации и удобному времени</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="text-primary" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">3</div>
+            <h3 class="font-semibold mb-2" style="font-size: 1.25rem;">Откликаетесь</h3>
+            <p class="text-secondary">Договариваетесь о деталях в чате</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="text-primary" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">4</div>
+            <h3 class="font-semibold mb-2" style="font-size: 1.25rem;">Получаете оплату</h3>
+            <p class="text-secondary">Напрямую от клиентов</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-secondary">
+    <div class="container">
+      <h2 class="section-title">Тарифы</h2>
+      <div class="grid grid-cols-1 grid-cols-md-3 gap-3" style="margin-top: 2rem;">
+        <div class="card">
+          <div class="card-header text-center">
+            <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Старт</h3>
+            <div class="text-primary" style="font-size: 2rem; font-weight: 800;">99₽</div>
+            <p class="text-secondary" style="font-size: 0.875rem;">7 откликов</p>
+          </div>
+          <div class="card-body">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Доступ к заказам</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ 7 откликов</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Техподдержка</li>
+            </ul>
+            <a href="auth.html" class="btn btn-outline btn-full" style="margin-top: 1.5rem;">Выбрать</a>
+          </div>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-primary);">
+          <div class="badge badge-primary" style="position: absolute; top: 1rem; right: 1rem;">Популярный</div>
+          <div class="card-header text-center">
+            <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Профи</h3>
+            <div class="text-primary" style="font-size: 2rem; font-weight: 800;">299₽</div>
+            <p class="text-secondary" style="font-size: 0.875rem;">30 откликов</p>
+          </div>
+          <div class="card-body">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Все из Старт</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ 30 откликов</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Приоритетный показ</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Статистика</li>
+            </ul>
+            <a href="auth.html" class="btn btn-primary btn-full" style="margin-top: 1.5rem;">Выбрать</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header text-center">
+            <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Безлимит</h3>
+            <div class="text-primary" style="font-size: 2rem; font-weight: 800;">599₽</div>
+            <p class="text-secondary" style="font-size: 0.875rem;">∞ откликов</p>
+          </div>
+          <div class="card-body">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Все из Профи</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Безлимит откликов</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Топ размещение</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border);">✓ Личный менеджер</li>
+            </ul>
+            <a href="auth.html" class="btn btn-outline btn-full" style="margin-top: 1.5rem;">Выбрать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-primary" style="color: white;">
+    <div class="container text-center">
+      <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Готовы начать зарабатывать?</h2>
+      <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.9;">Зарегистрируйтесь и получите доступ к заказам</p>
+      <a href="auth.html" class="btn" style="background: white; color: var(--color-primary); font-weight: 600; padding: 1rem 2rem; font-size: 1.125rem;">Зарегистрироваться</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>О платформе</h3>
+          <a href="index.html" class="footer-link">Главная</a>
+          <a href="for-specialists.html" class="footer-link">Для специалистов</a>
+        </div>
+        <div class="footer-section">
+          <h3>Юридическая информация</h3>
+          <a href="agreement.html" class="footer-link">Пользовательское соглашение</a>
+          <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <p style="font-size: 0.875rem; opacity: 0.8;">support@nannita.ru</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

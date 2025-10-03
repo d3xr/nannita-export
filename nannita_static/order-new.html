@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создать заказ - Nannita</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html"><img src="images/logo-black.png" alt="Nannita" class="logo"></a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Главная</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="background: var(--color-bg-secondary);">
+    <div class="container">
+      <div class="card" style="max-width: 800px; margin: 0 auto;">
+        <div class="card-header">
+          <h1 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Создать заказ</h1>
+          <p class="text-secondary">Заполните форму, и специалисты начнут откликаться</p>
+          <div style="margin-top: 1rem;">
+            <div class="progress-bar" style="width: 33%; height: 4px; background: var(--color-primary); border-radius: 2px; transition: width 0.3s;"></div>
+          </div>
+        </div>
+        
+        <div class="card-body">
+          <form id="order-form">
+            <div data-step="1">
+              <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">Шаг 1: Основная информация</h2>
+              
+              <div class="form-group">
+                <label class="form-label">Тип услуги</label>
+                <select class="form-select" required>
+                  <option value="">Выберите</option>
+                  <option>Няня на час</option>
+                  <option>Няня на период</option>
+                  <option>Няня с проживанием</option>
+                  <option>Няня на постоянной основе</option>
+                </select>
+              </div>
+              
+              <div class="grid grid-cols-1 grid-cols-sm-2 gap-2">
+                <div class="form-group">
+                  <label class="form-label">Дата начала</label>
+                  <input type="date" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Время начала</label>
+                  <input type="time" class="form-input" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Город</label>
+                <input type="text" class="form-input" value="Казань" required>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Адрес</label>
+                <input type="text" class="form-input" placeholder="Улица, дом, квартира" required>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Дети</label>
+                <div id="children-list">
+                  <div class="card mb-2">
+                    <div class="card-body">
+                      <div class="grid grid-cols-1 grid-cols-sm-2 gap-2">
+                        <div class="form-group">
+                          <label class="form-label">Пол</label>
+                          <select class="form-select" required>
+                            <option value="">Выберите</option>
+                            <option>Мальчик</option>
+                            <option>Девочка</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">Возраст (лет)</label>
+                          <input type="number" class="form-input" min="0" max="17" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" id="add-child-btn" class="btn btn-outline btn-full">+ Добавить ребёнка</button>
+              </div>
+              
+              <button type="button" data-next-step class="btn btn-primary btn-full btn-lg">Далее</button>
+            </div>
+
+            <div data-step="2" style="display: none;">
+              <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">Шаг 2: Задачи и требования</h2>
+              
+              <div class="form-group">
+                <label class="form-label">Основные задачи</label>
+                <div class="grid grid-cols-1 gap-2">
+                  <label class="form-checkbox"><input type="checkbox"> Прогулки</label>
+                  <label class="form-checkbox"><input type="checkbox"> Развивающие занятия</label>
+                  <label class="form-checkbox"><input type="checkbox"> Помощь с уроками</label>
+                  <label class="form-checkbox"><input type="checkbox"> Приготовление детского питания</label>
+                  <label class="form-checkbox"><input type="checkbox"> Купание ребёнка</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Дополнительная информация</label>
+                <textarea class="form-textarea" placeholder="Расскажите о вашем ребёнке и пожеланиях..."></textarea>
+              </div>
+              
+              <div class="flex gap-2">
+                <button type="button" data-prev-step class="btn btn-outline" style="flex: 1;">Назад</button>
+                <button type="button" data-next-step class="btn btn-primary" style="flex: 1;">Далее</button>
+              </div>
+            </div>
+
+            <div data-step="3" style="display: none;">
+              <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">Шаг 3: Контакты и публикация</h2>
+              
+              <div class="form-group">
+                <label class="form-label">Телефон</label>
+                <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" required>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Email (необязательно)</label>
+                <input type="email" class="form-input" placeholder="email@example.com">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Предлагаемая цена</label>
+                <div class="grid grid-cols-1 grid-cols-sm-2 gap-2">
+                  <input type="number" class="form-input" placeholder="Сумма" required>
+                  <select class="form-select" required>
+                    <option>₽/час</option>
+                    <option>₽/день</option>
+                    <option>₽/месяц</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-checkbox">
+                  <input type="checkbox" required>
+                  <span style="font-size: 0.875rem;">Я согласен(а) с <a href="agreement.html" class="text-primary">условиями использования</a></span>
+                </label>
+              </div>
+              
+              <div class="flex gap-2">
+                <button type="button" data-prev-step class="btn btn-outline" style="flex: 1;">Назад</button>
+                <button type="submit" class="btn btn-primary" style="flex: 1;">Опубликовать заказ</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="text-align: center; padding: 1rem 0;">
+        <a href="index.html" class="footer-link">На главную</a>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('order-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (validateForm('order-form')) {
+        showToast('Заказ успешно создан! Специалисты скоро начнут откликаться.', 'success');
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "name": "Nannita - Подбор нянь и специалистов",
+  "short_name": "Nannita",
+  "description": "Профессиональный подбор нянь и специалистов для детей. Mobile-first PWA приложение",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FF6B35",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ru",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "images/logo-black.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo-black.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Найти няню",
+      "short_name": "Поиск",
+      "description": "Найти проверенную няню",
+      "url": "/search-results.html",
+      "icons": [{ "src": "images/logo-black.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Создать заказ",
+      "short_name": "Заказ",
+      "description": "Создать новый заказ",
+      "url": "/order-new.html",
+      "icons": [{ "src": "images/logo-black.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Для специалистов",
+      "short_name": "Работа",
+      "description": "Информация для специалистов",
+      "url": "/for-specialists.html",
+      "icons": [{ "src": "images/logo-black.png", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/logo-black.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "prefer_related_applications": false
+}

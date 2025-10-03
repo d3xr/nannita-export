@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поиск нянь - Nannita</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html"><img src="images/logo-black.png" alt="Nannita" class="logo"></a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="for-specialists.html" class="nav-link">Для специалистов</a>
+          <a href="order-new.html" class="btn btn-primary btn-sm">Создать заказ</a>
+        </nav>
+        <button class="mobile-menu-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+  </header>
+  
+  <div class="mobile-menu">
+    <a href="index.html" class="mobile-menu-link">Главная</a>
+    <a href="for-specialists.html" class="mobile-menu-link">Для специалистов</a>
+    <a href="order-new.html" class="mobile-menu-link">Создать заказ</a>
+  </div>
+
+  <section class="section bg-secondary" style="padding: 2rem 0;">
+    <div class="container">
+      <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Найти няню</h1>
+      <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <div class="card-body">
+          <div class="flex gap-2">
+            <input type="text" id="search-input" class="form-input" placeholder="Поиск по имени, району, услугам..." style="flex: 1;">
+            <button class="btn btn-primary"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <p class="text-secondary">Найдено: <span class="font-semibold">500+ специалистов</span></p>
+        <select class="form-select" style="width: auto;">
+          <option>По рейтингу</option>
+          <option>По цене</option>
+          <option>По опыту</option>
+        </select>
+      </div>
+      
+      <div class="grid grid-cols-1 grid-cols-sm-2 grid-cols-lg-3 gap-3" id="nannies-grid">
+        <div class="nanny-card" onclick="window.location.href='nanny-profile.html'">
+          <img src="images/logo-black.png" alt="Няня" class="nanny-card-image" style="object-fit: contain; padding: 2rem;">
+          <div class="nanny-card-body">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+              <h3 class="nanny-card-title">Анна Петрова</h3>
+              <button class="favorite-btn" onclick="event.stopPropagation();" style="background: none; border: none; cursor: pointer; font-size: 1.5rem;">♡</button>
+            </div>
+            <div class="nanny-card-meta">
+              <span class="nanny-card-rating">⭐ 4.9</span>
+              <span>•</span>
+              <span>5 лет</span>
+            </div>
+            <p class="text-secondary nanny-card-location" style="font-size: 0.875rem; margin-bottom: 0.5rem;">📍 Казань, Вахитовский р-н</p>
+            <p class="text-secondary nanny-card-service" style="font-size: 0.875rem;">Работа с детьми от 1 года</p>
+            <div class="nanny-card-price">от 250 ₽/час</div>
+          </div>
+        </div>
+
+        <div class="nanny-card" onclick="window.location.href='nanny-profile.html'">
+          <img src="images/logo-black.png" alt="Няня" class="nanny-card-image" style="object-fit: contain; padding: 2rem;">
+          <div class="nanny-card-body">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+              <h3 class="nanny-card-title">Мария Сидорова</h3>
+              <button class="favorite-btn" onclick="event.stopPropagation();" style="background: none; border: none; cursor: pointer; font-size: 1.5rem;">♡</button>
+            </div>
+            <div class="nanny-card-meta">
+              <span class="nanny-card-rating">⭐ 4.8</span>
+              <span>•</span>
+              <span>7 лет</span>
+            </div>
+            <p class="text-secondary nanny-card-location" style="font-size: 0.875rem; margin-bottom: 0.5rem;">📍 Казань, Приволжский р-н</p>
+            <p class="text-secondary nanny-card-service" style="font-size: 0.875rem;">Педагогическое образование</p>
+            <div class="nanny-card-price">от 280 ₽/час</div>
+          </div>
+        </div>
+
+        <div class="nanny-card" onclick="window.location.href='nanny-profile.html'">
+          <img src="images/logo-black.png" alt="Няня" class="nanny-card-image" style="object-fit: contain; padding: 2rem;">
+          <div class="nanny-card-body">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+              <h3 class="nanny-card-title">Елена Иванова</h3>
+              <button class="favorite-btn" onclick="event.stopPropagation();" style="background: none; border: none; cursor: pointer; font-size: 1.5rem;">♡</button>
+            </div>
+            <div class="nanny-card-meta">
+              <span class="nanny-card-rating">⭐ 5.0</span>
+              <span>•</span>
+              <span>10 лет</span>
+            </div>
+            <p class="text-secondary nanny-card-location" style="font-size: 0.875rem; margin-bottom: 0.5rem;">📍 Казань, Советский р-н</p>
+            <p class="text-secondary nanny-card-service" style="font-size: 0.875rem;">Медицинское образование</p>
+            <div class="nanny-card-price">от 300 ₽/час</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 2rem;">
+        <p class="text-secondary" style="margin-bottom: 1rem;">Показано 3 из 500+ специалистов</p>
+        <button class="btn btn-outline btn-lg">Загрузить еще</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>О платформе</h3>
+          <a href="index.html" class="footer-link">Главная</a>
+          <a href="for-specialists.html" class="footer-link">Для специалистов</a>
+        </div>
+        <div class="footer-section">
+          <h3>Юридическая информация</h3>
+          <a href="agreement.html" class="footer-link">Пользовательское соглашение</a>
+          <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <p style="font-size: 0.875rem; opacity: 0.8;">support@nannita.ru</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход - Nannita</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html"><img src="images/logo-black.png" alt="Nannita" class="logo"></a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Главная</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="min-height: calc(100vh - 200px); display: flex; align-items: center;">
+    <div class="container">
+      <div class="card" style="max-width: 500px; margin: 0 auto;">
+        <div class="card-header text-center">
+          <h1 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Вход в систему</h1>
+          <p class="text-secondary">Введите номер телефона для входа</p>
+        </div>
+        <div class="card-body">
+          <form id="auth-form">
+            <div class="form-group">
+              <label class="form-label">Номер телефона</label>
+              <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Я —</label>
+              <select class="form-select" required>
+                <option value="">Выберите</option>
+                <option value="parent">Родитель</option>
+                <option value="nanny">Специалист</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" required>
+                <span style="font-size: 0.875rem;">Я согласен(а) с <a href="agreement.html" class="text-primary">пользовательским соглашением</a> и <a href="privacy.html" class="text-primary">политикой конфиденциальности</a></span>
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-full btn-lg">Получить код</button>
+          </form>
+          
+          <div id="code-section" style="display: none; margin-top: 2rem;">
+            <div class="form-group">
+              <label class="form-label">Код из СМС</label>
+              <input type="text" class="form-input" placeholder="_ _ _ _" maxlength="6" style="text-align: center; font-size: 1.5rem; letter-spacing: 0.5rem;">
+            </div>
+            
+            <p class="text-center text-secondary" style="font-size: 0.875rem; margin-bottom: 1rem;">
+              <span id="sms-timer">Повторить через 60с</span>
+            </p>
+            
+            <button type="button" id="resend-btn" class="btn btn-outline btn-full" disabled>Отправить код повторно</button>
+            
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+              <p class="text-center text-secondary" style="font-size: 0.875rem; margin-bottom: 1rem;">Не приходит код?</p>
+              <button type="button" class="btn btn-outline btn-full btn-sm" style="margin-bottom: 0.5rem;">📞 Позвонить мне</button>
+              <button type="button" class="btn btn-outline btn-full btn-sm">💬 Отправить SMS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="text-align: center; padding: 1rem 0;">
+        <a href="index.html" class="footer-link">На главную</a>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('auth-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (validateForm('auth-form')) {
+        document.getElementById('code-section').style.display = 'block';
+        showToast('Код отправлен на ваш номер', 'success');
+      }
+    });
+  </script>
+</body>
+</html>

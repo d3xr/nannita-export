@@ -1,0 +1,713 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(218, 38%, 20%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(218, 38%, 20%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(218, 38%, 20%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: 249 115 22;
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(227, 58%, 89%);
+  --secondary-foreground: hsl(218, 38%, 20%);
+  --accent: hsl(227, 58%, 89%);
+  --accent-foreground: hsl(218, 38%, 20%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(60, 9%, 98%);
+  --ring: hsl(218, 38%, 20%);
+  --radius: 0.5rem;
+
+  /* Custom Nannita colors */
+  --nannita-dark-blue: hsl(218, 38%, 20%);
+  --nannita-light-blue: hsl(227, 58%, 89%);
+  --nannita-orange: hsl(12, 73%, 60%);
+  --nannita-orange-dark: hsl(12, 73%, 50%);
+  --nannita-gray: hsl(215, 16%, 65%);
+  --nannita-light-gray: hsl(210, 40%, 96%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 4%, 16%);
+  --muted-foreground: hsl(240, 5%, 65%);
+  --popover: hsl(240, 10%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 4%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 4%, 16%);
+  --input: hsl(240, 4%, 16%);
+  --primary: 249 115 22;
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 4%, 16%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 4%, 16%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 5%, 84%);
+}
+
+/* Base font styles */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Heading styles with Roboto */
+h1, h2, h3, h4, h5, h6,
+.heading {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+@layer components {
+  /* ====== ЕДИНАЯ СИСТЕМА КОНТЕЙНЕРОВ ====== */
+  .container-sm {
+    @apply max-w-3xl mx-auto px-4 sm:px-6;  /* Формы, диалоги */
+  }
+  
+  .container-md {
+    @apply max-w-4xl mx-auto px-4 sm:px-6;  /* Статьи, детали */
+  }
+  
+  .container-lg {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;  /* ЛК, основные страницы */
+  }
+  
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;  /* Лендинги, широкий контент */
+  }
+
+  /* Responsive версия с адаптивными max-width */
+  .container-responsive {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto;
+    @apply max-w-sm sm:max-w-md md:max-w-4xl lg:max-w-6xl xl:max-w-7xl;
+  }
+
+  /* ====== СТАНДАРТНЫЕ LAYOUT КЛАССЫ ====== */
+  .page-header-offset {
+    @apply pt-[73px];  /* Компенсация fixed header */
+  }
+  
+  .page-content {
+    @apply pb-16 sm:pb-20;  /* Стандартный bottom padding */
+  }
+  
+  .section-spacing {
+    @apply py-12 sm:py-16 lg:py-20;  /* Отступы между секциями */
+  }
+  
+  .content-spacing {
+    @apply space-y-6 sm:space-y-8;  /* Отступы между элементами контента */
+  }
+  
+  .mobile-friendly-padding {
+    @apply p-4 sm:p-6 lg:p-8;  /* Адаптивные внутренние отступы */
+  }
+
+  /* ====== СТАНДАРТИЗИРОВАННЫЕ КНОПКИ ====== */
+  .btn-sm {
+    @apply px-4 py-3 text-sm font-semibold rounded-lg min-h-[44px];  /* Touch-safe */
+    @apply transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+  
+  .btn-md {
+    @apply px-6 py-3 text-base font-semibold rounded-lg min-h-[48px];  /* Стандартный */
+    @apply transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+  
+  .btn-lg {
+    @apply px-8 py-4 text-lg font-semibold rounded-lg min-h-[52px];  /* Акцентный */
+    @apply transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+  
+  /* Цветовые схемы кнопок */
+  .btn-primary {
+    @apply bg-nannita-orange hover:bg-nannita-orange-dark text-white;
+    @apply focus-visible:outline-nannita-orange;
+  }
+  
+  .btn-secondary {
+    @apply bg-nannita-blue-light hover:bg-[hsl(227,58%,85%)] text-nannita-dark-blue;
+    @apply focus-visible:outline-nannita-blue;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-nannita-orange text-nannita-orange bg-transparent;
+    @apply hover:bg-nannita-orange hover:text-white;
+    @apply focus-visible:outline-nannita-orange;
+  }
+  
+  .btn-ghost {
+    @apply text-gray-600 bg-transparent hover:bg-gray-50 hover:text-gray-900;
+    @apply focus-visible:outline-gray-400;
+  }
+
+  /* Legacy классы (deprecated, использовать новые) */
+  .nannita-btn-primary {
+    @apply btn-md btn-primary;
+  }
+  
+  .nannita-btn-secondary {
+    @apply btn-md btn-secondary;
+  }
+
+  /* ====== УЛУЧШЕННЫЕ CARD КОМПОНЕНТЫ ====== */
+  .nannita-card {
+    @apply bg-white rounded-xl shadow-sm border border-[hsl(214,32%,91%)];
+    @apply mobile-friendly-padding;  /* Адаптивные отступы */
+  }
+  
+  .card-compact {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200;
+    @apply p-4 sm:p-6;  /* Компактные отступы */
+  }
+  
+  .card-spacious {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-200;
+    @apply p-6 sm:p-8 lg:p-10;  /* Просторные отступы */
+  }
+
+  /* ====== СЕКЦИИ И КОНТЕНТ ====== */
+  .nannita-section {
+    @apply section-spacing;
+  }
+
+  .nannita-container {
+    @apply container-lg;  /* Используем новый стандарт */
+  }
+
+  .floating-header {
+    @apply fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300;
+  }
+
+  .floating-header.hidden {
+    @apply -translate-y-full opacity-0;
+  }
+
+  /* Simple Accordion styles like Yandex Services */
+  .simple-accordion [data-radix-accordion-trigger] {
+    @apply focus:outline-none focus:ring-0 border-0 shadow-none;
+  }
+  
+  .simple-accordion [data-radix-accordion-trigger]:focus {
+    @apply ring-0 outline-none;
+  }
+  
+  .simple-accordion [data-radix-accordion-trigger]:hover {
+    @apply bg-transparent;
+  }
+
+  /* ====== TOUCH-SAFE ФОРМЫ И ИНПУТЫ ====== */
+  .form-input {
+    @apply text-base min-h-[48px] px-4 py-3;  /* Предотвращает zoom на iOS */
+    @apply border border-gray-200 rounded-lg;
+    @apply focus:outline-none focus:border-nannita-orange focus:ring-0;
+    @apply transition-colors duration-200;
+  }
+  
+  .form-input-sm {
+    @apply text-sm min-h-[44px] px-3 py-2;  /* Компактная версия */
+    @apply border border-gray-200 rounded-lg;
+    @apply focus:outline-none focus:border-nannita-orange focus:ring-0;
+    @apply transition-colors duration-200;
+  }
+  
+  .form-input-lg {
+    @apply text-lg min-h-[52px] px-5 py-4;  /* Большая версия */
+    @apply border border-gray-200 rounded-lg;
+    @apply focus:outline-none focus:border-nannita-orange focus:ring-0;
+    @apply transition-colors duration-200;
+  }
+  
+  /* Touch-friendly элементы */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+    @apply cursor-pointer select-none;
+  }
+  
+  .touch-target-lg {
+    @apply min-h-[48px] min-w-[48px] flex items-center justify-center;
+    @apply cursor-pointer select-none;
+  }
+
+  /* ====== ЕДИНЫЕ СТИЛИ ЧЕКБОКСОВ ====== */
+  
+  /* НЕ убираем браузерные стили для input чекбоксов - пусть будут нативными */
+  
+  input[type="checkbox"]::before,
+  input[type="checkbox"]::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* ГЛАВНЫЕ СТИЛИ RADIX UI ЧЕКБОКСОВ */
+  button[role="checkbox"] {
+    /* Сброс всех возможных стилей */
+    all: unset !important;
+    /* Устанавливаем собственные стили */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: #ffffff !important;
+    border: 2px solid #d1d5db !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  button[role="checkbox"]:hover {
+    border-color: #9ca3af !important;
+    background-color: #f9fafb !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  button[role="checkbox"][data-state="checked"] {
+    background-color: #ffffff !important;
+    border-color: #d1d5db !important;
+    color: hsl(12, 73%, 60%) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  button[role="checkbox"][data-state="checked"]:hover {
+    background-color: #f9fafb !important;
+    border-color: #9ca3af !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  /* Галочка - всегда оранжевая */
+  button[role="checkbox"] svg {
+    width: 14px !important;
+    height: 14px !important;
+    stroke-width: 2.5 !important;
+    color: hsl(12, 73%, 60%) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  
+  button[role="checkbox"][data-state="unchecked"] svg {
+    opacity: 0 !important;
+    transform: scale(0.5) rotate(-45deg) !important;
+  }
+  
+  button[role="checkbox"][data-state="checked"] svg {
+    opacity: 1 !important;
+    transform: scale(1) rotate(0deg) !important;
+  }
+  
+  /* Фокус */
+  button[role="checkbox"]:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px hsla(12, 73%, 60%, 0.2) !important;
+  }
+  
+  /* Отключенное состояние */
+  button[role="checkbox"]:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+  }
+
+  .form-select {
+    @apply text-base min-h-[48px] px-4 py-3;
+    @apply border border-gray-200 rounded-lg bg-white;
+    @apply focus:outline-none focus:border-nannita-orange focus:ring-0;
+    @apply transition-colors duration-200;
+  }
+
+  .form-textarea {
+    @apply text-base min-h-[120px] px-4 py-3;
+    @apply border border-gray-200 rounded-lg;
+    @apply focus:outline-none focus:border-nannita-orange focus:ring-0;
+    @apply transition-colors duration-200 resize-y;
+  }
+
+  /* Улучшенные focus states для всех элементов */
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [role="combobox"]:focus-visible,
+  [data-radix-select-trigger]:focus-visible {
+    outline: 2px solid hsl(var(--nannita-orange)) !important;
+    outline-offset: 2px !important;
+    ring: 0 !important;
+  }
+
+  /* Стили для нативных HTML чекбоксов */
+  input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    accent-color: hsl(12, 73%, 60%) !important;
+    cursor: pointer !important;
+    -webkit-appearance: auto !important;
+    -moz-appearance: auto !important;
+    appearance: auto !important;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Carousel styles */
+.carousel-container {
+  @apply relative overflow-hidden;
+}
+
+.carousel-track {
+  @apply flex transition-transform duration-300 ease-in-out;
+}
+
+.carousel-arrow {
+  @apply absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-[hsl(215,16%,65%)] hover:bg-[hsl(215,16%,55%)] text-white rounded-full flex items-center justify-center transition-colors duration-200;
+}
+
+.carousel-arrow.prev {
+  @apply left-4;
+}
+
+.carousel-arrow.next {
+  @apply right-4;
+}
+
+/* Tab styles */
+.tab-button {
+  @apply px-8 py-4 font-semibold transition-all duration-200 border-b-2;
+}
+
+.tab-button.active {
+  @apply bg-[hsl(218,38%,20%)] text-white rounded-t-lg border-[hsl(218,38%,20%)];
+}
+
+.tab-button.inactive {
+  @apply bg-[hsl(227,58%,89%)] text-[hsl(218,38%,20%)] hover:bg-[hsl(227,58%,85%)] border-transparent;
+}
+
+/* FAQ accordion styles */
+.faq-item {
+  @apply border-b border-[hsl(214,32%,91%)] py-6;
+}
+
+.faq-question {
+  @apply flex justify-between items-center cursor-pointer;
+}
+
+
+
+.faq-icon {
+  @apply text-[hsl(227,58%,89%)] text-2xl font-light transition-transform duration-200;
+}
+
+.faq-icon.open {
+  @apply rotate-45;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Mobile carousel item width for specialists - shows 1.5 cards */
+.carousel-item-width {
+  width: calc(66.67% - 0.5rem);
+  margin-right: 1rem;
+}
+
+/* Hero section styles */
+.hero-section {
+  background-image: url('/hero-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.hero-overlay {
+  background: #0000004d;
+}
+
+/* ====== АНИМАЦИИ И ПЕРЕХОДЫ ====== */
+.transition-standard {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.transition-fast {
+  @apply transition-all duration-150 ease-in-out;
+}
+
+.transition-slow {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* ====== RESPONSIVE ДИЗАЙН ====== */
+@media (max-width: 768px) {
+  .nannita-container {
+    @apply px-4;
+  }
+  
+  .carousel-arrow {
+    @apply w-8 h-8;
+  }
+  
+  .tab-button {
+    @apply px-4 py-3 text-sm;
+  }
+  
+  /* Быстрые анимации на мобильных */
+  .transition-standard {
+    @apply duration-150;
+  }
+  
+  .transition-slow {
+    @apply duration-200;
+  }
+  
+  /* Увеличенные touch targets на мобильных */
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px];
+  }
+}
+
+/* Планшеты */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container-responsive {
+    @apply max-w-4xl px-6;
+  }
+}
+
+/* Большие экраны */
+@media (min-width: 1440px) {
+  .container-xl {
+    @apply max-w-[1600px];  /* Больше пространства на широких экранах */
+  }
+}
+
+/* Дополнительные классы для продакшена */
+.app-banner-bg {
+  background-color: #3747b7;
+  min-height: 420px;
+}
+
+.phone-rotation {
+  transform: rotate(-6deg) translateY(-25px);
+  position: relative;
+  top: -20px;
+}
+
+.bg-gradient-blue {
+  background: linear-gradient(135deg, #e3eaff 0%, #f6f8ff 100%);
+}
+
+.bg-gradient-purple {
+  background: linear-gradient(135deg, #f6f8ff 0%, #e3eaff 100%);
+}
+
+.specialist-content-width {
+  width: 60%;
+}
+
+.specialist-icon-width {
+  width: 40%;
+}
+
+.text-nannita-orange {
+  color: rgb(249 115 22);
+}
+
+.text-nannita-blue-dark {
+  color: #1d222f;
+}
+
+.bg-nannita-orange {
+  background-color: rgb(249 115 22);
+}
+
+.hover\:bg-nannita-orange-dark:hover {
+  background-color: rgb(234 88 12);
+}
+
+/* ====== MOBILE V2 BOTTOM TABS & PWA SUPPORT ====== */
+
+/* Safe Area support for iOS devices */
+.safe-area-pb {
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+}
+
+.safe-area-pt {
+  padding-top: max(8px, env(safe-area-inset-top));
+}
+
+.safe-area-pl {
+  padding-left: max(8px, env(safe-area-inset-left));
+}
+
+.safe-area-pr {
+  padding-right: max(8px, env(safe-area-inset-right));
+}
+
+/* Bottom tabs specific safe area */
+.bottom-tabs-safe-area {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+/* PWA viewport adjustments */
+@supports (padding: max(0px)) {
+  .safe-area-pb {
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+  
+  .safe-area-pt {
+    padding-top: max(8px, env(safe-area-inset-top));
+  }
+  
+  .safe-area-pl {
+    padding-left: max(8px, env(safe-area-inset-left));
+  }
+  
+  .safe-area-pr {
+    padding-right: max(8px, env(safe-area-inset-right));
+  }
+}
+
+/* Smooth tap animations for mobile */
+.tap-highlight-none {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Mobile-optimized focus states */
+.mobile-focus-ring:focus-visible {
+  @apply ring-2 ring-orange-500 ring-offset-2;
+  outline: none;
+}
+
+/* PWA status bar theming */
+@media (display-mode: standalone) {
+  :root {
+    --status-bar-height: env(safe-area-inset-top);
+  }
+  
+  body {
+    padding-top: var(--status-bar-height);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bottom-tabs-container {
+    border-top-width: 2px;
+  }
+  
+  .bottom-tab-active {
+    @apply ring-2 ring-orange-600;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .bottom-tab-transition,
+  .fab-animation,
+  .sheet-animation {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Mobile-specific button enhancements */
+.mobile-touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  @apply flex items-center justify-center;
+}
+
+/* FAB specific styles */
+.fab-shadow {
+  box-shadow: 
+    0 4px 14px 0 rgba(249, 115, 22, 0.25),
+    0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.fab-shadow-hover {
+  box-shadow: 
+    0 6px 20px 0 rgba(249, 115, 22, 0.3),
+    0 4px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.dark .fab-shadow {
+  box-shadow: 
+    0 4px 14px 0 rgba(249, 115, 22, 0.4),
+    0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dark .fab-shadow-hover {
+  box-shadow: 
+    0 6px 20px 0 rgba(249, 115, 22, 0.5),
+    0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile Header V2 Styles */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.safe-area-top {
+  padding-top: max(0px, env(safe-area-inset-top));
+}
+
+@supports (padding: max(0px)) {
+  .safe-area-top {
+    padding-top: max(0px, env(safe-area-inset-top));
+  }
+}
+
+
